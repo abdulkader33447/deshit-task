@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
         Component: Products,
       },
       {
-        path: "/project",
+        path: "/projects",
         Component: Projects,
       },
       {

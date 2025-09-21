@@ -1,16 +1,18 @@
-import React from "react";
+import { useState } from "react";
 import { Link, NavLink } from "react-router";
 
-export const Navbar = () => {
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const links = (
     <>
       <li>
         <NavLink
-          to={"/"}
+          to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-[#FA8370]"
-              : "hover:text-[#FA8370] transition duration-500"
+              ? "text-[#FA8370] font-semibold"
+              : "hover:text-[#FA8370] transition duration-300"
           }
         >
           Home
@@ -18,11 +20,11 @@ export const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to={"/products"}
+          to="/products"
           className={({ isActive }) =>
             isActive
-              ? "text-[#FA8370]"
-              : "hover:text-[#FA8370] transition duration-500"
+              ? "text-[#FA8370] font-semibold"
+              : "hover:text-[#FA8370] transition duration-300"
           }
         >
           Products
@@ -30,11 +32,11 @@ export const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to={"/projects"}
+          to="/projects"
           className={({ isActive }) =>
             isActive
-              ? "text-[#FA8370]"
-              : "hover:text-[#FA8370] transition duration-500"
+              ? "text-[#FA8370] font-semibold"
+              : "hover:text-[#FA8370] transition duration-300"
           }
         >
           Projects
@@ -42,11 +44,11 @@ export const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to={"/company"}
+          to="/company"
           className={({ isActive }) =>
             isActive
-              ? "text-[#FA8370]"
-              : "hover:text-[#FA8370] transition duration-500"
+              ? "text-[#FA8370] font-semibold"
+              : "hover:text-[#FA8370] transition duration-300"
           }
         >
           Company
@@ -54,11 +56,11 @@ export const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to={"/contact"}
+          to="/contact"
           className={({ isActive }) =>
             isActive
-              ? "text-[#FA8370]"
-              : "hover:text-[#FA8370] transition duration-500"
+              ? "text-[#FA8370] font-semibold"
+              : "hover:text-[#FA8370] transition duration-300"
           }
         >
           Contact
@@ -66,11 +68,11 @@ export const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to={"/training"}
+          to="/training"
           className={({ isActive }) =>
             isActive
-              ? "text-[#FA8370]"
-              : "hover:text-[#FA8370] transition duration-500"
+              ? "text-[#FA8370] font-semibold"
+              : "hover:text-[#FA8370] transition duration-300"
           }
         >
           Training
@@ -78,41 +80,59 @@ export const Navbar = () => {
       </li>
     </>
   );
+
   return (
-    <div className="navbar">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+    <nav className="sm:w-9/12 mx-auto sm:mt-5">
+      <div className="flex justify-between items-center w-11/12 mx-auto py-3">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2">
+          <img src="/src/assets/logo.jpg" alt="logo" />
+        </Link>
+
+        {/* Desktop Menu */}
+        <ul className="hidden lg:flex gap-8">{links}</ul>
+
+        {/* Mobile Hamburger */}
+        <div className="lg:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="focus:outline-none"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-7 w-7 text-gray-700"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              {isOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
             </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            {links}
-          </ul>
+          </button>
         </div>
-        <Link to={"/"} className="cursor-pointer text-xl">
-          <img src="/src/assets/logo.jpg" alt="logo" />
-        </Link>
       </div>
-      <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-10">{links}</ul>
-      </div>
-    </div>
+
+      {/* Mobile Dropdown */}
+      {isOpen && (
+        <ul className="flex flex-col gap-4 bg-white px-6 py-4 shadow-md lg:hidden">
+          {links}
+        </ul>
+      )}
+    </nav>
   );
 };
+
+export default Navbar;

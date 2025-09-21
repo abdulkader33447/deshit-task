@@ -2,6 +2,20 @@ import React from "react";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { motion } from "framer-motion";
 
+const text = "Benefits Of Software Development Outsourcing";
+
+const letterAnimation = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.05,
+      duration: 0.3,
+    },
+  }),
+};
+
 const Benefits = () => {
   const cardVariants = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
@@ -13,29 +27,29 @@ const Benefits = () => {
     },
   };
   return (
-    <div className="sm:w-8/12 w-11/12 mx-auto sm:mt-30 mt-10 lg:mt-28">
+    <div className="sm:w-8/12 w-11/12 mx-auto sm:mt-30 mt-20 lg:mt-28">
       <div className="text-center sm:my-12">
-        <motion.h1
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="sm:text-3xl text-xl font-bold text-center mb-5"
-        >
-          Benefits Of Software Development Outsourcing
-        </motion.h1>
-        <motion.p
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="max-w-[900px] mx-auto sm:text-xl"
-        >
+        <h1 className="sm:text-3xl text-2xl font-bold text-center mb-5">
+          {text.split("").map((char, i) => (
+            <motion.span
+              key={i}
+              custom={i}
+              variants={letterAnimation}
+              initial="hidden"
+              whileInView="visible"
+              //   animate="visible"
+              className="inline-block"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </h1>
+        <p className="max-w-[900px] mx-auto sm:text-xl">
           Outsourcing software development cuts costs, gives you access to
           expert skills, and offers flexibility. It accelerates project
           timelines, minimizes risks, and introduces new global ideas to your
           work.
-        </motion.p>
+        </p>
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 sm:gap-15 gap-8 sm:mt-15 mt-8">
         <motion.div

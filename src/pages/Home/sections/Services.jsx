@@ -14,6 +14,20 @@ import {
 import { SiGooglegemini } from "react-icons/si";
 import { motion } from "framer-motion";
 
+const text = "Software Development Services";
+
+const letterAnimation = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.05,
+      duration: 0.3,
+    },
+  }),
+};
+
 const Services = () => {
   const cardVariants = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
@@ -26,13 +40,25 @@ const Services = () => {
   };
 
   return (
-    <div className="sm:w-8/12 w-11/12 mx-auto sm:mt-30 mt-10 lg:mt-28">
-      <h1 className="text-2xl font-bold text-center">
-        Software Development Services
+    <div className="sm:w-8/12 w-11/12 mx-auto sm:mt-30 mt-20 lg:mt-28">
+      <h1 className="sm:text-3xl text-2xl font-bold text-center">
+        {text.split("").map((char, i) => (
+          <motion.span
+            key={i}
+            custom={i}
+            variants={letterAnimation}
+            initial="hidden"
+            whileInView="visible"
+            //   animate="visible"
+            className="inline-block"
+          >
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
       </h1>
 
       {/* service container */}
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-10">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-8">
         {/* Mobile App Development */}
         <motion.div
           variants={cardVariants}
@@ -186,8 +212,8 @@ const Services = () => {
           <p className="text-gray-700 text-sm leading-relaxed">
             Maximize Odoo’s potential with our offshore team’s implementation,
             customization, and support services. Outsourcing helps streamline
-            operations and improve efficiency without the overhead of an in-house
-            team.
+            operations and improve efficiency without the overhead of an
+            in-house team.
           </p>
         </motion.div>
 

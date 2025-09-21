@@ -45,11 +45,11 @@ const Hero = () => {
           animate="visible"
           custom={0.4}
         >
-          <h1 className="lg:text-6xl font-semibold text-center md:text-4xl text-2xl sm:mb-7 mb-4">
+          <h1 className="lg:text-6xl sm:font-semibold text-center md:text-4xl text-3xl sm:mb-7 mb-4">
             Software <br />
             Development <br /> Outsourcing Services
           </h1>
-          <p className="text-center sm:text-xl lg:text-2xl text-base text-gray-700">
+          <p className="text-center lg:text-2xl text-base text-gray-700">
             Expand your capabilities by hiring our expert developers. We deliver
             top-notch software outsourcing solutions tailored to your needs
             while saving your time and resources.

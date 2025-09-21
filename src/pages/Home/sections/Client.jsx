@@ -5,6 +5,20 @@ import nokia from "../../../assets/nokia.png";
 import vivo from "../../../assets/vivo.png";
 import { motion } from "framer-motion";
 
+const text = "Trusted By 100+ Companies including";
+
+const letterAnimation = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.05,
+      duration: 0.3,
+    },
+  }),
+};
+
 const logos = [
   { src: un, alt: "United Nations logo" },
   { src: itc, alt: "ITC logo" },
@@ -37,16 +51,28 @@ const itemVariants = {
 
 const Client = () => {
   return (
-    <div className="sm:w-8/12 w-11/12 mx-auto sm:mt-30 mt-10 lg:mt-28">
-      <motion.h1
+    <div className="sm:w-8/12 w-11/12 mx-auto sm:mt-30 mt-20 lg:mt-28">
+      <h1
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 1 }}
-        className="text-center text-xl sm:text-2xl lg:text-3xl font-bold"
+        className="text-center text-3xl sm:text-2xl lg:text-3xl font-bold"
       >
-        Trusted By 100+ Companies including
-      </motion.h1>
+        {text.split("").map((char, i) => (
+          <motion.span
+            key={i}
+            custom={i}
+            variants={letterAnimation}
+            initial="hidden"
+            whileInView="visible"
+            //   animate="visible"
+            className="inline-block"
+          >
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+      </h1>
 
       <motion.div
         className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-28 mt-8"
@@ -59,7 +85,7 @@ const Client = () => {
           <motion.img
             key={index}
             variants={itemVariants}
-            className="h-5 sm:h-8 lg:h-10 object-contain"
+            className="h-6 sm:h-8 lg:h-10 object-contain"
             src={logo.src}
             alt={logo.alt}
           />

@@ -21,7 +21,7 @@ const ExpertiseStats = () => {
 
   return (
     <motion.div
-      className="bg-black sm:mt-30 mt-10 lg:mt-28 sm:py-12 py-5 sm:px-none px-2"
+      className="bg-black sm:mt-30 mt-20 lg:mt-28 sm:py-12 py-5 sm:px-none px-2"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -31,7 +31,7 @@ const ExpertiseStats = () => {
         <div className="flex lg:flex-row flex-col gap-10 items-center justify-between">
 
           {/* Profile + Quote */}
-          <motion.div className="stat-figure text-secondary flex sm:gap-5" variants={childVariants}>
+          <motion.div className="stat-figure text-secondary flex sm:gap-5 gap-3" variants={childVariants}>
             <div className="avatar avatar-placeholder">
               <div className="bg-neutral text-neutral-content sm:w-24 sm:h-24 w-15 h-15 border-2 rounded-full">
                 <img

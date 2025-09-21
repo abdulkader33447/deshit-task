@@ -1,96 +1,73 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router";
+import { motion, AnimatePresence } from "framer-motion";
+import logo from "../../assets/logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const links = (
-    <>
-      <li>
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#FA8370] font-semibold"
-              : "hover:text-[#FA8370] transition duration-300"
-          }
-        >
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/products"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#FA8370] font-semibold"
-              : "hover:text-[#FA8370] transition duration-300"
-          }
-        >
-          Products
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/projects"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#FA8370] font-semibold"
-              : "hover:text-[#FA8370] transition duration-300"
-          }
-        >
-          Projects
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/company"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#FA8370] font-semibold"
-              : "hover:text-[#FA8370] transition duration-300"
-          }
-        >
-          Company
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#FA8370] font-semibold"
-              : "hover:text-[#FA8370] transition duration-300"
-          }
-        >
-          Contact
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/training"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#FA8370] font-semibold"
-              : "hover:text-[#FA8370] transition duration-300"
-          }
-        >
-          Training
-        </NavLink>
-      </li>
-    </>
-  );
+  // Parent dropdown animation (mobile)
+  const menuVariants = {
+    hidden: { opacity: 0, height: 0 },
+    visible: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: 0.4,
+        ease: "easeInOut",
+        staggerChildren: 0.15,
+      },
+    },
+    exit: { opacity: 0, height: 0, transition: { duration: 0.3 } },
+  };
+
+  // Each link animation (both desktop & mobile)
+  const linkVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  };
+
+  const navLinks = [
+    { to: "/", label: "Home" },
+    { to: "/products", label: "Products" },
+    { to: "/projects", label: "Projects" },
+    { to: "/company", label: "Company" },
+    { to: "/contact", label: "Contact" },
+    { to: "/training", label: "Training" },
+  ];
 
   return (
-    <nav className="sm:w-9/12 mx-auto sm:mt-5">
+    <nav className="sm:w-9/12 mx-auto sm:mt-5 relative">
       <div className="flex justify-between items-center w-11/12 mx-auto py-3">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <img src="/src/assets/logo.jpg" alt="logo" />
+          <img src={logo} alt="logo" className="h-8 w-auto" />
         </Link>
 
-        {/* Desktop Menu */}
-        <ul className="hidden lg:flex gap-8">{links}</ul>
+        {/* Desktop Menu with stagger animation */}
+        <motion.ul
+          className="hidden lg:flex gap-8"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
+        >
+          {navLinks.map((link, i) => (
+            <motion.li key={i} variants={linkVariants}>
+              <NavLink
+                to={link.to}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[#FA8370] font-semibold"
+                    : "hover:text-[#FA8370] transition duration-300"
+                }
+              >
+                {link.label}
+              </NavLink>
+            </motion.li>
+          ))}
+        </motion.ul>
 
         {/* Mobile Hamburger */}
         <div className="lg:hidden">
@@ -125,12 +102,34 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
-      {isOpen && (
-        <ul className="flex flex-col gap-4 bg-white px-6 py-4 shadow-md lg:hidden">
-          {links}
-        </ul>
-      )}
+      {/* Mobile Dropdown with Stagger Animation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            variants={menuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="absolute top-16 left-0 w-full flex flex-col gap-4 bg-white px-6 py-4 shadow-md lg:hidden overflow-hidden z-50"
+          >
+            {navLinks.map((link, i) => (
+              <motion.li key={i} variants={linkVariants}>
+                <NavLink
+                  to={link.to}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[#FA8370] font-semibold"
+                      : "hover:text-[#FA8370] transition duration-300"
+                  }
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </NavLink>
+              </motion.li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

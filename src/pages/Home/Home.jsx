@@ -1,3 +1,4 @@
+import Benefits from "./sections/Benefits";
 import Client from "./sections/Client";
 import ExpertiseStats from "./sections/ExpertiseStats ";
 import Hero from "./sections/Hero";
@@ -10,6 +11,7 @@ const Home = () => {
       <Client />
       <ExpertiseStats />
       <Services />
+      <Benefits />
     </div>
   );
 };

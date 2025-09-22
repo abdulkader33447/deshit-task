@@ -19,6 +19,7 @@ const pageVariants = {
 
 const RootLayout = () => {
   const location = useLocation();
+  // console.log(location);
 
   return (
     <div className="roboto">

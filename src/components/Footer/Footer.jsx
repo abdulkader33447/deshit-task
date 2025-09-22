@@ -26,14 +26,14 @@ const Footer = () => {
     { to: "/cookies", label: "Cookie policy" },
   ];
 
-  const handleSubscribe = (e)=>{
-e.preventDefault()
-Swal.fire({
-  title: "You are now our premium user.",
-  icon: "success",
-  draggable: true
-});
-}
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    Swal.fire({
+      title: "You are now our premium user.",
+      icon: "success",
+      draggable: true,
+    });
+  };
 
   return (
     <div className="bg-[#FDF8F8] sm:mt-30 mt-20 lg:mt-28">
@@ -116,7 +116,8 @@ Swal.fire({
                 className="input input-bordered w-full"
                 required
               />
-              <button onClick={handleSubscribe}
+              <button
+                onClick={handleSubscribe}
                 type="submit"
                 className="btn w-full bg-[#F86011] text-white border-none hover:bg-[#e65406] hover:border-none transition-colors"
               >

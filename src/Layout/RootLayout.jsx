@@ -21,7 +21,7 @@ const RootLayout = () => {
   const location = useLocation();
 
   return (
-    <div>
+    <div className="roboto">
       <Navbar />
       <div className="overflow-hidden">
         <AnimatePresence mode="wait" initial={false}>

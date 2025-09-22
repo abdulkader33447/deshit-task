@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+  
+}

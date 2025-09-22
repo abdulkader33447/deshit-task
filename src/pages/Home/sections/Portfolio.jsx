@@ -18,14 +18,14 @@ const letterAnimation = {
   }),
 };
 
-const handleReadMore = (e)=>{
-e.preventDefault()
-Swal.fire({
-  title: "Content will be coming soon",
-  icon: "success",
-  draggable: true
-});
-}
+const handleReadMore = (e) => {
+  e.preventDefault();
+  Swal.fire({
+    title: "Content will be coming soon",
+    icon: "success",
+    draggable: true,
+  });
+};
 
 const Portfolio = () => {
   return (
@@ -47,11 +47,18 @@ const Portfolio = () => {
       </h1>
       <div className="flex lg:flex-row flex-col items-center justify-around xl:gap-20 gap-10 mt-10">
         <img className="xl:w-full lg:w-65" src={imgOne} alt="dheki shak" />
-        <img className="xl:w-full lg:w-65" src={imgTwo} alt="mountain, city, sky" />
+        <img
+          className="xl:w-full lg:w-65"
+          src={imgTwo}
+          alt="mountain, city, sky"
+        />
         <img className="xl:w-full lg:w-65" src={imgThree} alt="Glass ball" />
       </div>
       <div className="flex items-center justify-center">
-        <button onClick={handleReadMore} className="btn text-center bg-[#F86011] text-white border-none hover:bg-[#e65406] hover:border-none sm:mt-20 mt-10">
+        <button
+          onClick={handleReadMore}
+          className="btn text-center bg-[#F86011] text-white border-none hover:bg-[#e65406] hover:border-none sm:mt-20 mt-10"
+        >
           Read more case studies
         </button>
       </div>

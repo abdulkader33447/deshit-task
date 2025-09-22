@@ -7,7 +7,7 @@ import imgFive from "../../assets/image 18.png";
 
 const Products = () => {
   return (
-    <div className="xl:w-8/12 lg:w-10/12 w-11/12 mx-auto min-h-[calc(100vh-655px)] sm:mt-30 mt-20 lg:mt-28">
+    <div className="xl:w-8/12 lg:w-10/12 w-11/12 mx-auto min-h-[calc(100vh-655px)] sm:mt-30 mt-20 lg:mt-28 py-10">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-15">
 
         <div className="relative group">

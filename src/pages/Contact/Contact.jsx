@@ -69,7 +69,7 @@ const Contact = () => {
           <button
             onClick={handleSubmit}
             type="submit"
-            className="cursor-pointer px-6 py-3 rounded-2xl bg-[#FA8370] text-white font-medium shadow-xl hover:bg-[#ff9d8e] transition"
+            className="cursor-pointer px-6 py-3 rounded-2xl bg-[#FA8370] text-white font-medium shadow-xl hover:bg-[#e65406] transition"
           >
             Send Your Message
           </button>

@@ -1,6 +1,7 @@
 import { SiFacebook } from "react-icons/si";
 import { TiSocialLinkedinCircular } from "react-icons/ti";
 import { Link } from "react-router";
+import Swal from "sweetalert2";
 
 const Footer = () => {
   const navLinks = [
@@ -24,6 +25,15 @@ const Footer = () => {
     { to: "/privacy", label: "Privacy policy" },
     { to: "/cookies", label: "Cookie policy" },
   ];
+
+  const handleSubscribe = (e)=>{
+e.preventDefault()
+Swal.fire({
+  title: "You are now our premium user.",
+  icon: "success",
+  draggable: true
+});
+}
 
   return (
     <div className="bg-[#FDF8F8] sm:mt-30 mt-20 lg:mt-28">
@@ -106,7 +116,7 @@ const Footer = () => {
                 className="input input-bordered w-full"
                 required
               />
-              <button
+              <button onClick={handleSubscribe}
                 type="submit"
                 className="btn w-full bg-[#F86011] text-white border-none hover:bg-[#e65406] hover:border-none transition-colors"
               >

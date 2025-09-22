@@ -37,8 +37,8 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sm:w-9/12 mx-auto sm:mt-5 relative">
-      <div className="flex justify-between items-center w-11/12 mx-auto py-3">
+    <nav className="lg:w-9/12 md:10/12 w-11/12 mx-auto sm:mt-5 relative">
+      <div className="flex justify-between items-center mx-auto py-3">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="logo" className="h-8 w-auto" />

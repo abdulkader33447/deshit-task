@@ -52,7 +52,7 @@ const itemVariants = {
 const Client = () => {
   return (
     <div className="sm:w-8/12 w-11/12 mx-auto sm:mt-30 mt-20 lg:mt-28">
-      <h1
+      <motion.h1
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -72,10 +72,10 @@ const Client = () => {
             {char === " " ? "\u00A0" : char}
           </motion.span>
         ))}
-      </h1>
+      </motion.h1>
 
       <motion.div
-        className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-28 mt-8"
+        className="flex flex-wrap items-center justify-center gap-6 lg:gap-10 xl:gap-28 mt-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"

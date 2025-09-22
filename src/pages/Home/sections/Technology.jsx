@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 const text = "Our Advanced Development Technology";
@@ -59,7 +58,9 @@ const Technology = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <h1 className="sm:text-4xl text-2xl font-semibold mb-5">Machine Learning</h1>
+          <h1 className="sm:text-4xl text-2xl font-semibold mb-5">
+            Machine Learning
+          </h1>
           <p className="sm:text-xl">
             We integrate machine learning into client projects to automate
             processes, predict outcomes, and personalize experiences. This
@@ -74,7 +75,9 @@ const Technology = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <h1 className="sm:text-4xl text-2xl font-semibold mb-5">Blockchain</h1>
+          <h1 className="sm:text-4xl text-2xl font-semibold mb-5">
+            Blockchain
+          </h1>
           <p className="sm:text-xl">
             We build secure, decentralized solutions powered by blockchain. From
             smart contracts to supply chain transparency, our blockchain
@@ -138,7 +141,9 @@ const Technology = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <h1 className="sm:text-4xl text-2xl font-semibold mb-5">Facial Recognition</h1>
+          <h1 className="sm:text-4xl text-2xl font-semibold mb-5">
+            Facial Recognition
+          </h1>
           <p className="sm:text-xl">
             We implement facial recognition technology to enhance security and
             personalize user experiences in client projects. This technology

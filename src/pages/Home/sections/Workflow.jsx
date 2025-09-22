@@ -74,7 +74,7 @@ const Workflow = () => {
       </div>
 
       {/* Desktop Layout */}
-      <div className="relative hidden md:block mx-auto max-w-6xl h-[350px]">
+      <div className="relative hidden xl:block mx-auto max-w-6xl ml-50 h-[350px]">
         {/* Yellow connector path */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none"
@@ -83,27 +83,72 @@ const Workflow = () => {
           strokeWidth="2"
         >
           <polyline
-            points="60,40 250,40 440,40 630,40 760,110 630,180 440,180 250,180 60,180 60,260 250,260 440,260 630,260 760,260"
+            points="60,40 250,40 440,40 630,40 770,40 770,180 440,180 250,180 60,180 60,340 250,340 440,340 630,340 770,340 "
             fill="none"
           />
         </svg>
 
         {steps.map((Icon, idx) => {
           const positions = [
-            { top: "10%", left: "5%" },
-            { top: "10%", left: "22%" },
-            { top: "10%", left: "39%" },
-            { top: "10%", left: "56%" },
-            { top: "30%", left: "72%" },
-            { top: "52%", left: "56%" },
-            { top: "52%", left: "39%" },
-            { top: "52%", left: "22%" },
-            { top: "52%", left: "5%" },
-            { top: "72%", left: "5%" },
-            { top: "72%", left: "22%" },
-            { top: "72%", left: "39%" },
-            { top: "72%", left: "56%" },
-            { top: "72%", left: "72%" },
+            { top: "4%", left: "4%" },
+            { top: "4%", left: "22%" },
+            { top: "4%", left: "39%" },
+            { top: "4%", left: "56%" },
+            { top: "20%", left: "70%" },
+            { top: "43%", left: "56%" },
+            { top: "43%", left: "39%" },
+            { top: "43%", left: "22%" },
+            { top: "43%", left: "4%" },
+            { top: "89%", left: "4%" },
+            { top: "89%", left: "22%" },
+            { top: "89%", left: "39%" },
+            { top: "89%", left: "56%" },
+            { top: "89%", left: "70%" },
+          ];
+          const pos = positions[idx];
+          return (
+            <div
+              key={idx}
+              className="absolute flex items-center justify-center w-14 h-14 bg-gray-200 rounded-full shadow-md"
+              style={{ top: pos.top, left: pos.left }}
+            >
+              <Icon className="text-orange-500" size={24} />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* laptop layout */}
+      <div className="relative xl:hidden hidden lg:block mx-auto max-w-5xl h-[370px]">
+        {/* Yellow connector path */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          fill="none"
+          stroke="#facc15"
+          strokeWidth="2"
+        >
+          <polyline
+            points="60,40 250,40 440,40 500,40 570,40 570,180 440,180 250,180 60,180 60,360 250,360 440,360 680,360 630,360 "
+            fill="none"
+          />
+        </svg>
+
+        {steps.map((Icon, idx) => {
+          const positions = [
+            { top: "4%", left: "5%" },
+            { top: "4%", left: "30%" },
+            { top: "4%", left: "53%" },
+            { top: "4%", left: "79%" },
+            { top: "43%", left: "5%" },
+            { top: "43%", left: "30%" },
+            { top: "43%", left: "53%" },
+            { top: "43%", left: "79%" },
+            { top: "92%", left: "5%" },
+            { top: "92%", left: "30%" },
+            { top: "92%", left: "53%" },
+            { top: "92%", left: "79%" },
+            { top: "92%", left: "96%" },
+            { top: "68%", left: "5%" },
           ];
           const pos = positions[idx];
           return (
@@ -119,20 +164,48 @@ const Workflow = () => {
       </div>
 
       {/* Mobile/Tablet Timeline */}
-      <div className="md:hidden relative max-w-md mx-auto">
-        <div className="absolute left-6 top-0 bottom-0 w-1 bg-yellow-300" />
-        <ul className="space-y-10">
-          {steps.map((Icon, index) => (
-            <li key={index} className="relative flex items-start">
-              <div className="relative z-10 flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full">
-                <Icon className="text-orange-500" size={22} />
-              </div>
-              <div className="ml-6 mt-1 text-gray-700 font-medium">
-                Step {index + 1}
-              </div>
-            </li>
-          ))}
-        </ul>
+      <div className="relative xl:hidden md:hidden block mx-auto max-w-5xl h-[350px]">
+        {/* Yellow connector path */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          fill="none"
+          stroke="#facc15"
+          strokeWidth="2"
+        >
+          <polyline
+            points="20,40 40,40 440,40 330,40 330,40 330,180 330,180 250,180 40,180 40,340 250,340 440,340 680,340 630,340 "
+            fill="none"
+          />
+        </svg>
+
+        {steps.map((Icon, idx) => {
+          const positions = [
+            { top: "4%", left: "5%" },
+            { top: "4%", left: "37%" },
+            { top: "4%", left: "64%" },
+            { top: "4%", left: "89%" },
+            { top: "43%", left: "5%" },
+            { top: "43%", left: "30%" },
+            { top: "43%", left: "53%" },
+            { top: "43%", left: "79%" },
+            { top: "92%", left: "5%" },
+            { top: "92%", left: "30%" },
+            { top: "92%", left: "53%" },
+            { top: "92%", left: "74%" },
+            { top: "92%", left: "91%" },
+            { top: "68%", left: "5%" },
+          ];
+          const pos = positions[idx];
+          return (
+            <div
+              key={idx}
+              className="absolute flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full shadow-md"
+              style={{ top: pos.top, left: pos.left }}
+            >
+              <Icon className="text-orange-500" size={20} />
+            </div>
+          );
+        })}
       </div>
     </section>
   );

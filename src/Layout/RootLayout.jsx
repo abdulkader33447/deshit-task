@@ -32,7 +32,7 @@ const RootLayout = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="min-h-[80vh]"
+            // className="min-h-[80vh]"
           >
             <Outlet />
           </motion.div>

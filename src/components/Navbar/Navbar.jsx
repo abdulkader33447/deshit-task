@@ -158,17 +158,19 @@ const Navbar = () => {
           </p>
         </div>
       ) : (
-        <div className="flex items-center justify-center">
-          <div>
-            <h1 className="text-4xl font-bold">Get in touch with Us</h1>
-            <p className="text-xl">
-              Why I say old chap that is spiffing, young delinquent in my flat
-              bloke <br />
-               buggered what a plonker.
-            </p>
-          </div>
-          <div>
-            <img src={contact} alt="contact img" />
+        <div className="hidden lg:block">
+          <div className="flex items-center justify-center">
+            <div>
+              <h1 className="text-4xl font-bold">Get in touch with Us</h1>
+              <p className="text-xl">
+                Why I say old chap that is spiffing, young delinquent in my flat
+                bloke <br />
+                buggered what a plonker.
+              </p>
+            </div>
+            <div>
+              <img src={contact} alt="contact img" />
+            </div>
           </div>
         </div>
       )}
